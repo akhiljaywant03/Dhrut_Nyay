@@ -1,20 +1,3 @@
-/*
- * Copyright 2013-2017 Amazon.com,
- * Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Amazon Software License (the "License").
- * You may not use this file except in compliance with the
- * License. A copy of the License is located at
- *
- *      http://aws.amazon.com/asl/
- *
- * or in the "license" file accompanying this file. This file is
- * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
- * CONDITIONS OF ANY KIND, express or implied. See the License
- * for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.dhrutnyay;
 
 
@@ -61,10 +44,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     private final String TAG="MainActivity";
 
-    private NavigationView nDrawer;
-    private DrawerLayout mDrawer;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private Toolbar toolbar;
+
     private AlertDialog userDialog;
     private ProgressDialog waitDialog;
 
@@ -130,15 +110,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Open/Close the navigation drawer when menu icon is selected
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Open/Close the navigation drawer when menu icon is selected
+//        if (mDrawerToggle.onOptionsItemSelected(item)) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
 
     @Override
@@ -270,6 +250,10 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent,10);
 
     }
+    public void form(View view){
+        Intent intent=new Intent(this,FIRForm.class);
+        startActivityForResult(intent,13);
+    }
 
 //    public void book(View view)
 //    {
@@ -302,20 +286,20 @@ public class MainActivity extends AppCompatActivity {
 
     // Private methods
     // Handle when the a navigation item is selected
-    private void setNavDrawer() {
-        nDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                performAction(item);
-                return true;
-            }
-        });
-    }
+//    private void setNavDrawer() {
+//        nDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(MenuItem item) {
+//                performAction(item);
+//                return true;
+//            }
+//        });
+//    }
 
     // Perform the action for the selected navigation item
     private void performAction(MenuItem item) {
         // Close the navigation drawer
-        mDrawer.closeDrawers();
+        //mDrawer.closeDrawers();
 
         // Find which item was selected
         switch(item.getItemId()) {

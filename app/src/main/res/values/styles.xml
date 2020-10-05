@@ -8,6 +8,9 @@
         <item name="colorAccent">@color/toolbar_items</item>
     </style>
 
+    <style name="Material_Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+    </style>
     <style name="AWSCognitoTheme" parent="AppTheme">
         <item name="android:colorBackground">@color/toolbar_background</item>
         <item name="android:textColor">@color/toolbar_items</item>
@@ -54,5 +57,21 @@
     <style name="DialogTheme" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+<!--    <style name="MyTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="hintTextAppearance">@style/MyTextInputLayout.HintText</item>-->
+<!--        <item name="hintTextColor">@color/textColorPrimary</item>-->
+<!--        <item name="android:paddingBottom">8dp</item>-->
+<!--        <item name="boxStrokeColor">@color/textInputOutlineColor</item>-->
+<!--    </style>-->
+
+    <style name="MyTextInputField" parent="">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="MyTextInputLayout.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
 
 </resources>

@@ -71,40 +71,21 @@ public class AppHelper {
     private static List<ItemToDisplay> mfaOptions;
     private static List<String> mfaAllOptionsCode;
 
-    // The lines below allow app users to register in your Cognito User Pool. Use
-    // a Cognito Identity Pool to control the user's access to your account resources.
-    // https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html
 
-    // Change the next three lines of code to run this demo on your user pool
+    private static final String userPoolId = "ap-south-1_GGj7UxSAd";
 
-    /**
-     * Add your pool id here
-     */
-    private static final String userPoolId = "ap-south-1_M5RFE5Jus";
 
-    /**
-     * Add you app id
-     */
-    private static final String clientId = "7f87usov1185bv2crhsovaiocp";
+    private static final String clientId = "1u9s2fqqlp0gj1fvucon6481re";
 
-    /**
-     * App secret associated with your app id - if the App id does not have an associated App secret,
-     * set the App secret to null.
-     * e.g. clientSecret = null;
-     */
-    private static final String clientSecret = null;
 
-    /**
-     * Set Your User Pools region.
-     * e.g. if your user pools are in US East (N Virginia) then set cognitoRegion = Regions.US_EAST_1.
-     */
+    private static final String clientSecret = "1qv4t5ah2op6463pbgejh8btp0oop17v059qkm4pd1gvtb8jllqh";
+
+
     private static final Regions cognitoRegion = Regions.AP_SOUTH_1;
 
-    // User details from the service
     private static CognitoUserSession currSession;
     private static CognitoUserDetails userDetails;
 
-    // User details to display - they are the current values, including any local modification
     private static boolean phoneVerified;
     private static boolean emailVerified;
 
@@ -126,16 +107,8 @@ public class AppHelper {
 
         if (userPool == null) {
 
-            // Create a user pool with default ClientConfiguration
             userPool = new CognitoUserPool(context, userPoolId, clientId, clientSecret, cognitoRegion);
 
-            // This will also work
-            /*
-            ClientConfiguration clientConfiguration = new ClientConfiguration();
-            AmazonCognitoIdentityProvider cipClient = new AmazonCognitoIdentityProviderClient(new AnonymousAWSCredentials(), clientConfiguration);
-            cipClient.setRegion(Region.getRegion(cognitoRegion));
-            userPool = new CognitoUserPool(context, userPoolId, clientId, clientSecret, cipClient);
-            */
 
 
         }

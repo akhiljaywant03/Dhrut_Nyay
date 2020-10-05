@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +22,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".FIRForm"
+            android:theme="@style/Material_Theme">
+
+        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,27 +35,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.dhrutnyay.SignUpConfirm"
+            android:name=".SignUpConfirm"
             android:label="@string/title_activity_sign_up_confirm"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.dhrutnyay.Dashboard"
+            android:name=".Dashboard"
+            android:configChanges="orientation|screenSize"
             android:label="Dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
         <activity
-            android:name="com.example.dhrutnyay.ForgotPasswordActivity"
+            android:name=".ForgotPasswordActivity"
             android:label="@string/title_activity_forgot_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.dhrutnyay.ChangePasswordActivity"
+            android:name=".ChangePasswordActivity"
             android:label="@string/title_activity_change_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.dhrutnyay.NewPassword"
+            android:name=".NewPassword"
             android:label="@string/title_activity_new_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.dhrutnyay.RegisterUser"
+            android:name=".RegisterUser"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
