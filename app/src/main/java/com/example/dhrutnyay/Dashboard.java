@@ -32,5 +32,19 @@ public class Dashboard extends AppCompatActivity {
 //        startActivity(intent);
 //    }
 
+    public void form(View view){
+        Intent intent=new Intent(this,FIRForm.class);
+        startActivityForResult(intent,13);
+    }
+
+    public void fetch(View view){
+        Intent intent=new Intent(this,RetrieveForm.class);
+        startActivityForResult(intent,12);
+    }
+    public void aadhar(View view){
+        Intent intent=new Intent(this,AdharSaveActivity.class);
+        startActivityForResult(intent,15);
+    }
+
 
 }

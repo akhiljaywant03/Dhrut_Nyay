@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -26,6 +28,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class FIRForm extends AppCompatActivity {
     String data = new String();
+    AutoCompleteTextView autoCompleteTextView;
 
 
     @Override
@@ -36,11 +39,18 @@ public class FIRForm extends AppCompatActivity {
 
         final EditText Complaint_id=(EditText)findViewById(R.id.Complaint_id);
         final EditText Complainant_name=(EditText)findViewById(R.id.Complainant_name);
-        final EditText Complaint_type=(EditText)findViewById(R.id.Complaint_type);
+        //final EditText Complaint_type=(EditText)findViewById(R.id.Complaint_type);
         final EditText Location=(EditText)findViewById(R.id.Location);
         final EditText Date=(EditText)findViewById(R.id.Date);
         final EditText time1=(EditText)findViewById(R.id.Time);
         final EditText desc=(EditText)findViewById(R.id.desc);
+        autoCompleteTextView = findViewById(R.id.autoComp);
+
+        String []option=new String[] {"Theft","Money Laundering","Lost Article","Land Grabbing","Other"};
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(this,R.layout.options_comp_type,option);
+        //autoCompleteTextView.setText(arrayAdapter.getItem(0).toString(),false);
+        autoCompleteTextView.setAdapter(arrayAdapter);
+
 
         //Random rnd=new Random();
         int number= ThreadLocalRandom.current().nextInt(100000,1000000);
@@ -63,13 +73,14 @@ public class FIRForm extends AppCompatActivity {
 
                 String complaint_id=Complaint_id.getText().toString();
                 String complainant_name=Complainant_name.getText().toString();
-                String complaint_type=Complaint_type.getText().toString();
+                String complaint_type=autoCompleteTextView.getText().toString();
                 String location=Location.getText().toString();
                 String date=Date.getText().toString();
                 String Time1=time1.getText().toString();
                 String complaint=desc.getText().toString();
+                String status="Pending";
 
-                GetAllItemsAsyncTask getAllDevicesTask = new GetAllItemsAsyncTask(complaint_id ,complaint,complainant_name,complaint_type,location,date,Time1);
+                GetAllItemsAsyncTask getAllDevicesTask = new GetAllItemsAsyncTask(complaint_id ,complaint,complainant_name,complaint_type,location,date,Time1,status);
 
                 try {
 
@@ -98,8 +109,9 @@ public class FIRForm extends AppCompatActivity {
         private String date;
         private String Time1;
         private String complaint;
+        private String status;
 
-        public GetAllItemsAsyncTask(String complaint_id,String complaint, String complainant_name,String complaint_type,String location,String date,String Time1){
+        public GetAllItemsAsyncTask(String complaint_id,String complaint, String complainant_name,String complaint_type,String location,String date,String Time1,String status){
             this.complaint_id=complaint_id;
             this.complainant_name=complainant_name;
             this.complaint_type=complaint_type;
@@ -107,6 +119,7 @@ public class FIRForm extends AppCompatActivity {
             this.date=date;
             this.Time1=Time1;
             this.complaint=complaint;
+            this.status=status;
 
         }
 
@@ -132,6 +145,7 @@ public class FIRForm extends AppCompatActivity {
             item.put("date",new AttributeValue().withS(date));
             item.put("Time1",new AttributeValue().withS(Time1));
             item.put("complaint",new AttributeValue().withS(complaint));
+            item.put("status",new AttributeValue().withS(status));
 
 
             PutItemRequest putItemRequest=new PutItemRequest("Complaint",item);

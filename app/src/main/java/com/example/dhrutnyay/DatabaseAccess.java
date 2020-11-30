@@ -51,7 +51,7 @@ public class DatabaseAccess {
         return result;
     }
     public List<Document> getAllItems() {
-        return dbTable_Complaint.query(new Primitive("1")).getAllResults();
+        return dbTable_Complaint.query(new Primitive("2")).getAllResults();
     }
 
 }

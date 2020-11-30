@@ -250,10 +250,9 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent,10);
 
     }
-    public void form(View view){
-        Intent intent=new Intent(this,FIRForm.class);
-        startActivityForResult(intent,13);
-    }
+
+
+
 
 //    public void book(View view)
 //    {

@@ -78,7 +78,7 @@
                     android:layout_height="96dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/file_fir"
-                    android:onClick="choose" />
+                    android:onClick="form" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -118,7 +118,8 @@
                     android:layout_width="96dp"
                     android:layout_height="94dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/track" />
+                    android:background="@drawable/track"
+                    android:onClick="fetch"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -237,7 +238,8 @@
                     android:layout_width="83dp"
                     android:layout_height="97dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/aadhar" />
+                    android:background="@drawable/aadhar"
+                    android:onClick="aadhar"/>
 
                 <TextView
                     android:layout_width="wrap_content"
